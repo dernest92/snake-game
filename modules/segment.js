@@ -5,14 +5,14 @@ export class Segment {
     this.vel = vel;
     this.ctx = ctx;
   }
-  update() {
-    this.lastPos = { ...this.pos };
-    this.lastVel = { ...this.vel };
-    this.pos.x += this.vel.x;
-    this.pos.y += this.vel.y;
-  }
-  render() {
-    this.ctx.fillStyle = "green";
-    this.ctx.fillRect(this.pos.x, this.pos.y, 10, 10);
+
+  render(ctx) {
+    ctx.fillStyle = "green";
+    ctx.fillRect(this.pos.x, this.pos.y, 10, 10);
+    ctx.strokeStyle = "black";
+    ctx.beginPath();
+    ctx.lineWidth = "2";
+    ctx.rect(this.pos.x, this.pos.y, 10, 10);
+    ctx.stroke();
   }
 }
